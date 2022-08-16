@@ -1,0 +1,22 @@
+@import '../_project_starter_/style.scss';
+
+body {
+  background-color: #8e44ad;
+  color: #fff;
+}
+
+.counter-container {
+  @include flexColumnCenter();
+  margin: 30px 50px;
+}
+
+.counter {
+  font-size: 60px;
+  margin-top: 10px;
+}
+
+@media (max-width: 720px) {
+  body {
+    flex-direction: column;
+  }
+}
