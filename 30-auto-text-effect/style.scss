@@ -1,0 +1,25 @@
+@import '../_project_starter_/style.scss';
+
+body {
+  background-color: darksalmon;
+}
+
+div {
+  position: absolute;
+  bottom: 20px;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+input {
+  width: 50px;
+  padding: 5px;
+  font-size: 18px;
+  background-color: darksalmon;
+  border: none;
+  text-align: center;
+  &:focus {
+    outline: none;
+  }
+}
