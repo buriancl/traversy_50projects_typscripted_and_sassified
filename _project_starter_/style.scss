@@ -17,7 +17,6 @@ $muliFont: 'Muli', sans-serif;
 
 body {
   @include flexColumnCenter();
-  font-family: $robatoFont;
   height: 100vh;
   overflow: hidden;
   margin: 0;
