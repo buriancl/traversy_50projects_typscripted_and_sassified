@@ -1,5 +1,5 @@
-const backgroundEl = document.getElementById('background')
-const passwordInput = document.getElementById('password')
+const backgroundEl = document.getElementById('background') as HTMLDivElement
+const passwordInput = document.getElementById('password') as HTMLInputElement
 
 passwordInput?.addEventListener('input', (e) => {
   const target = e.target as HTMLInputElement
