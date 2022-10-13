@@ -8,6 +8,18 @@
   justify-content: center;
 }
 
+@mixin imageSetting {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin absolutePosition($xProperty, $xValue, $yProperty, $yValue) {
+  position: absolute;
+  #{$xProperty}: $xValue;
+  #{$yProperty}: $yValue;
+}
+
 $robatoFont: 'Robato', sans-serif;
 $muliFont: 'Muli', sans-serif;
 

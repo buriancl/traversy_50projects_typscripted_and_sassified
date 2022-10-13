@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Muli:300,700&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -9,7 +9,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Robato", sans-serif;
   height: 100vh;
   overflow: hidden;
   margin: 0;
@@ -17,6 +16,7 @@ body {
 
 body {
   font-family: "Muli", sans-serif;
+  flex-direction: row;
 }
 
 .container {
@@ -25,23 +25,23 @@ body {
 }
 
 .panel {
-  background-size: auto 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 80vh;
   border-radius: 50px;
   color: #fff;
+  cursor: pointer;
   flex: 0.5;
   margin: 10px;
   position: relative;
-  transition: flex 0.7s ease-in;
-  cursor: pointer;
+  -webkit-transition: all 700ms ease-in;
 }
 .panel h3 {
   font-size: 24px;
   position: absolute;
-  bottom: 20px;
   left: 20px;
+  bottom: 20px;
   margin: 0;
   opacity: 0;
 }
@@ -50,7 +50,7 @@ body {
 }
 .panel.active h3 {
   opacity: 1;
-  transition: opacity 0.3s ease-in 0.5s;
+  transition: opacity 0.3s ease-in 0.4s;
 }
 
 @media (max-width: 480px) {
@@ -61,4 +61,4 @@ body {
 .panel:nth-of-type(5) {
     display: none;
   }
-}/*# sourceMappingURL=style.css.map */
+}

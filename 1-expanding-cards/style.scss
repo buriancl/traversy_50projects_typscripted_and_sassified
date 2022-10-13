@@ -2,6 +2,7 @@
 
 body {
   font-family: $muliFont;
+  flex-direction: row;
 }
 
 .container {
@@ -10,30 +11,29 @@ body {
 }
 
 .panel {
-  background-size: auto 100%;
-  background-position: center;
-  background-repeat: no-repeat;
+  @include imageSetting();
   height: 80vh;
   border-radius: 50px;
   color: #fff;
+  cursor: pointer;
   flex: 0.5;
   margin: 10px;
   position: relative;
-  transition: flex 0.7s ease-in;
-  cursor: pointer;
+  -webkit-transition: all 700ms ease-in;
+
   h3 {
     font-size: 24px;
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
+    @include absolutePosition(left, 20px, bottom, 20px);
     margin: 0;
     opacity: 0;
   }
+
   &.active {
     flex: 5;
+
     h3 {
       opacity: 1;
-      transition: opacity 0.3s ease-in 0.5s;
+      transition: opacity 0.3s ease-in 0.4s;
     }
   }
 }
