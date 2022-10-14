@@ -4,6 +4,6 @@ const container = document.querySelector<HTMLDivElement>('.container')
 
 openButton.addEventListener('click', () => container?.classList.add('show-nav'))
 
-closeButton.addEventListener('click', () =>
+closeButton.addEventListener('click', () => {
   container?.classList.remove('show-nav')
-)
+})
