@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Muli:300,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
 @mixin flexCenter($flexDirection) {
   display: flex;
@@ -29,6 +30,7 @@
 
 $robatoFont: 'Robato', sans-serif;
 $muliFont: 'Muli', sans-serif;
+$latoFont: 'Lato', sans-serif;
 
 * {
   box-sizing: border-box;

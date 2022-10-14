@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Muli:300,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -12,12 +13,10 @@ body {
 
 body {
   font-family: "Lato", sans-serif;
-  display: inline;
   background-color: #333;
   color: #222;
   overflow: visible;
   overflow-x: hidden;
-  margin: 0;
 }
 
 .container {
@@ -31,12 +30,12 @@ body {
 .container.show-nav {
   transform: rotate(-20deg);
 }
+.container.show-nav .circle {
+  transform: rotate(-70deg);
+}
 .container.show-nav + nav li {
   transform: translateX(0);
   transition-delay: 0.3s;
-}
-.container.show-nav .circle {
-  transform: rotate(-70deg);
 }
 
 .circle-container {
@@ -56,8 +55,8 @@ body {
 .circle button {
   cursor: pointer;
   position: absolute;
-  top: 50%;
   left: 50%;
+  top: 50%;
   height: 100px;
   background: transparent;
   border: 0;
