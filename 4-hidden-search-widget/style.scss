@@ -15,8 +15,7 @@ body {
     border: 0;
     font-size: 18px;
     padding: 15px;
-    height: 50px;
-    width: 50px;
+    @include widthHeight(50px, 50px);
     transition: width 0.3s ease;
     &:focus {
       outline: none;
@@ -40,8 +39,7 @@ body {
   cursor: pointer;
   font-size: 24px;
   @include absolutePosition(left, 0, top, 0);
-  height: 50px;
-  width: 50px;
+  @include widthHeight(50px, 50px);
   transition: transform 0.3s ease;
   &:focus {
     outline: none;

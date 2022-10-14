@@ -32,8 +32,7 @@ body {
     background-color: $line-border-empty;
     @include absolutePosition(left, 0, top, 50%);
     transform: translateY(-50%);
-    height: 4px;
-    width: 100%;
+    @include widthHeight(100%, 4px);
     z-index: -1;
   }
 }
@@ -42,8 +41,7 @@ body {
   background-color: $line-border-fill;
   @include absolutePosition(left, 0, top, 50%);
   transform: translateY(-50%);
-  height: 4px;
-  width: 0%;
+  @include widthHeight(0%, 4px);
   z-index: -1;
   transition: 0.4s ease;
 }
@@ -51,8 +49,7 @@ body {
   background-color: #fff;
   color: #999;
   border-radius: 50%;
-  height: 30px;
-  width: 30px;
+  @include widthHeight(30px, 30px);
   @include flexCenter(row);
   border: 3px solid $line-border-empty;
   transition: 0.4s ease;
