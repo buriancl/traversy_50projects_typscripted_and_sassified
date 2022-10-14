@@ -65,6 +65,8 @@ body {
 }
 .circle button:focus {
   outline: none;
+  color: #222;
+  opacity: 0.5;
 }
 .circle button#open {
   left: 60%;

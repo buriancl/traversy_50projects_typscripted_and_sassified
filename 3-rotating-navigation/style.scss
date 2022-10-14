@@ -54,6 +54,8 @@ body {
 
     &:focus {
       outline: none;
+      color: #222;
+      opacity: 0.5;
     }
 
     &#open {
