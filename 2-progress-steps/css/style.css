@@ -1,15 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Muli:300,700&display=swap");
 * {
   box-sizing: border-box;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: "Robato", sans-serif;
   height: 100vh;
   overflow: hidden;
   margin: 0;
@@ -17,12 +12,25 @@ body {
 
 body {
   font-family: "Muli", sans-serif;
+  background-color: #f6f7fb;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .container {
   text-align: center;
 }
-.container .progress-container {
+
+.complete-message {
+  margin-bottom: 25px;
+  color: #3498db;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.progress-container {
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -30,44 +38,48 @@ body {
   max-width: 100%;
   width: 350px;
 }
-.container .progress-container::before {
+.progress-container::before {
   content: "";
   background-color: #e0e0e0;
   position: absolute;
-  top: 50%;
   left: 0;
+  top: 50%;
   transform: translateY(-50%);
   height: 4px;
   width: 100%;
   z-index: -1;
 }
-.container .progress-container .progress {
+
+.progress {
   background-color: #3498db;
   position: absolute;
-  top: 50%;
   left: 0;
+  top: 50%;
   transform: translateY(-50%);
   height: 4px;
   width: 0%;
   z-index: -1;
   transition: 0.4s ease;
 }
-.container .progress-container .circle {
+
+.circle {
   background-color: #fff;
   color: #999;
   border-radius: 50%;
   height: 30px;
   width: 30px;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   border: 3px solid #e0e0e0;
   transition: 0.4s ease;
 }
-.container .progress-container .circle.active {
+.circle.active {
   border-color: #3498db;
 }
-.container .btn {
+
+.btn {
   background-color: #3498db;
   color: #fff;
   border: 0;
@@ -78,13 +90,14 @@ body {
   margin: 5px;
   font-size: 14px;
 }
-.container .btn:active {
+.btn:active {
   transform: scale(0.98);
 }
-.container .btn:focus {
-  outline: 0;
+.btn:focus {
+  outline: none;
+  opacity: 0.7;
 }
-.container .btn:disabled {
+.btn:disabled {
   background-color: #e0e0e0;
   cursor: not-allowed;
-}/*# sourceMappingURL=style.css.map */
+}

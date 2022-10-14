@@ -2,7 +2,7 @@
 
 body {
   font-family: $muliFont;
-  flex-direction: row;
+  @include flexCenter(row);
 }
 
 .container {

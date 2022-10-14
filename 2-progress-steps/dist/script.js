@@ -3,6 +3,7 @@ const progress = document.getElementById('progress');
 const prev = document.getElementById('prev');
 const next = document.getElementById('next');
 const circles = document.querySelectorAll('.circle');
+const containerEl = document.querySelector('.container');
 let currentActive = 1;
 next === null || next === void 0 ? void 0 : next.addEventListener('click', () => {
     currentActive++;
@@ -32,12 +33,25 @@ const update = () => {
         ((actives.length - 1) / (circles.length - 1)) * 100 + '%';
     if (currentActive === 1) {
         prev.disabled = true;
+        removeMessage();
     }
     else if (currentActive === circles.length) {
         next.disabled = true;
+        displayMessage();
     }
     else {
         prev.disabled = false;
         next.disabled = false;
+        removeMessage();
     }
 };
+function displayMessage() {
+    const messageEl = document.createElement('p');
+    messageEl.classList.add('complete-message');
+    messageEl.innerText = 'Complete!';
+    containerEl === null || containerEl === void 0 ? void 0 : containerEl.prepend(messageEl);
+}
+function removeMessage() {
+    const messageEl = document.querySelector('.complete-message');
+    messageEl === null || messageEl === void 0 ? void 0 : messageEl.remove();
+}

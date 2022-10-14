@@ -5,74 +5,81 @@ $line-border-empty: #e0e0e0;
 
 body {
   font-family: $muliFont;
+  background-color: #f6f7fb;
+  @include flexCenter(row);
 }
 
 .container {
   text-align: center;
-  .progress-container {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    margin-bottom: 30px;
-    max-width: 100%;
-    width: 350px;
-    &::before {
-      content: '';
-      background-color: $line-border-empty;
-      position: absolute;
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
-      height: 4px;
-      width: 100%;
-      z-index: -1;
-    }
-    .progress {
-      background-color: $line-border-fill;
-      position: absolute;
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
-      height: 4px;
-      width: 0%;
-      z-index: -1;
-      transition: 0.4s ease;
-    }
-    .circle {
-      background-color: #fff;
-      color: #999;
-      border-radius: 50%;
-      height: 30px;
-      width: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 3px solid $line-border-empty;
-      transition: 0.4s ease;
-      &.active {
-        border-color: $line-border-fill;
-      }
-    }
+}
+
+.complete-message {
+  margin-bottom: 25px;
+  color: $line-border-fill;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+  &::before {
+    content: '';
+    background-color: $line-border-empty;
+    @include absolutePosition(left, 0, top, 50%);
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    z-index: -1;
   }
-  .btn {
-    background-color: $line-border-fill;
-    color: #fff;
-    border: 0;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: inherit;
-    padding: 8px 30px;
-    margin: 5px;
-    font-size: 14px;
-    &:active {
-      transform: scale(0.98);
-    }
-    &:focus {
-      outline: 0;
-    }
-    &:disabled {
-      background-color: $line-border-empty;
-      cursor: not-allowed;
-    }
+}
+
+.progress {
+  background-color: $line-border-fill;
+  @include absolutePosition(left, 0, top, 50%);
+  transform: translateY(-50%);
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transition: 0.4s ease;
+}
+.circle {
+  background-color: #fff;
+  color: #999;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  @include flexCenter(row);
+  border: 3px solid $line-border-empty;
+  transition: 0.4s ease;
+  &.active {
+    border-color: $line-border-fill;
+  }
+}
+
+.btn {
+  background-color: $line-border-fill;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 8px 30px;
+  margin: 5px;
+  font-size: 14px;
+  &:active {
+    transform: scale(0.98);
+  }
+  &:focus {
+    outline: none;
+    opacity: 0.7;
+  }
+  &:disabled {
+    background-color: $line-border-empty;
+    cursor: not-allowed;
   }
 }

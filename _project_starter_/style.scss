@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Muli:300,700&display=swap');
 
+@mixin flexCenter($flexDirection) {
+  display: flex;
+  flex-direction: $flexDirection;
+  align-items: center;
+  justify-content: center;
+}
+
 @mixin flexColumnCenter {
   display: flex;
   flex-direction: column;
@@ -28,7 +35,6 @@ $muliFont: 'Muli', sans-serif;
 }
 
 body {
-  @include flexColumnCenter();
   height: 100vh;
   overflow: hidden;
   margin: 0;
