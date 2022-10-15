@@ -1,7 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Muli:300,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
 * {
   box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
 }
 
 body {
@@ -9,13 +17,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Robato", sans-serif;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
-}
-
-body {
   background-color: steelblue;
   color: #fff;
   font-family: "Muli", sans-serif;
@@ -48,6 +49,7 @@ body {
 }
 .btn:focus {
   outline: 0;
+  opacity: 0.7;
 }
 .btn:active {
   transform: scale(0.98);
@@ -82,8 +84,8 @@ body {
 }
 .form-control label {
   position: absolute;
-  top: 15px;
   left: 0;
+  top: 15px;
 }
 .form-control label span {
   display: inline-block;

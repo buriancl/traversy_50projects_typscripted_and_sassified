@@ -10,11 +10,11 @@
   justify-content: center;
 }
 
-@mixin flexColumnCenter {
+@mixin flexSetting($flexDirection, $alignItems, $justifyContent) {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  flex-direction: $flexDirection;
+  align-items: $alignItems;
+  justify-content: $justifyContent;
 }
 
 @mixin imageSetting {
