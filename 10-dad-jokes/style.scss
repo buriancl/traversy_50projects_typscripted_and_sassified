@@ -1,6 +1,8 @@
 @import '../_project_starter_/style.scss';
 
 body {
+  font-family: $robotoFont;
+  @include flexSetting(column, center, center);
   background-color: #686de0;
   padding: 20px;
 }
@@ -43,5 +45,6 @@ h3 {
   }
   &:focus {
     outline: 0;
+    opacity: 0.8;
   }
 }

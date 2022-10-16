@@ -1,9 +1,9 @@
 @import '../_project_starter_/style.scss';
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
 
 body {
   background-color: rgb(161, 100, 223);
-  font-family: 'Poppins', sans-serif;
+  @include flexSetting(row, center, center);
+  font-family: $poppinsFont;
   flex-wrap: wrap;
 }
 
@@ -17,11 +17,9 @@ body {
   font-size: 1.2rem;
   font-family: inherit;
   cursor: pointer;
-  &:hover {
-    opacity: 0.9;
-  }
-
+  &:hover,
   &:focus {
+    opacity: 0.9;
     outline: none;
   }
 }
