@@ -3,6 +3,8 @@
 body {
   background-color: #e1e1e1;
   font-family: $muliFont;
+  @include flexSetting(row, center, center);
+  text-align: center;
 }
 
 .key {
@@ -21,9 +23,7 @@ body {
   border-radius: 2px;
 
   small {
-    position: absolute;
-    top: -24px;
-    left: 0;
+    @include absolutePosition(left, 0, top, -24px);
     text-align: center;
     width: 100%;
     color: #555;
