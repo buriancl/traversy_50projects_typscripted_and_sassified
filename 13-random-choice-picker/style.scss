@@ -1,6 +1,7 @@
 @import '../_project_starter_/style.scss';
 
 body {
+  @include flexSetting(column, center, center);
   background-color: #2b88f0;
   font-family: $muliFont;
 }
@@ -16,16 +17,16 @@ h3 {
 }
 
 textarea {
+  @include widthHeight(100%, 100px);
   border: none;
   display: block;
-  width: 100%;
-  height: 100px;
   font-family: inherit;
   padding: 10px;
   margin: 0 0 20px;
   font-size: 16px;
   &:focus {
     outline: none;
+    border: 1px solid #273c75;
   }
 }
 
@@ -39,5 +40,7 @@ textarea {
   display: inline-block;
   &.highlight {
     background-color: #273c75;
+    transform: scale(1.5);
+    margin: 0 20px;
   }
 }
