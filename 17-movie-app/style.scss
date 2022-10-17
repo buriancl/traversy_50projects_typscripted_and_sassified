@@ -6,8 +6,7 @@ $secondary-color: #373b69;
 
 body {
   background-color: $primary-color;
-  font-family: 'Poppins', sans-serif;
-  display: inline;
+  font-family: $poppinsFont;
   overflow: visible;
 }
 
@@ -61,10 +60,8 @@ main {
 }
 
 .movie-info {
+  @include flexSetting(row, center, space-between);
   color: #eee;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 0.5rem 1rem 1rem;
   letter-spacing: 0.5px;
   h3 {
@@ -90,11 +87,9 @@ main {
 }
 
 .overview {
+  @include absolutePosition(left, 0, bottom, 0);
   background-color: #fff;
   padding: 2rem;
-  position: absolute;
-  left: 0;
-  bottom: 0;
   right: 0;
   max-height: 100%;
   transform: translateY(101%);
