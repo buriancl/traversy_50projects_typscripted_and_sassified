@@ -1,12 +1,15 @@
 @import '../_project_starter_/style.scss';
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 body {
+  @include flexSetting(row, center, center);
   background-color: #8e44ad;
   color: #fff;
+  font-family: 'Roboto Mono', sans-serif;
 }
 
 .counter-container {
-  @include flexColumnCenter();
+  @include flexSetting(column, center, center);
   margin: 30px 50px;
 }
 
