@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
 
 @mixin flexCenter($flexDirection) {
   display: flex;
@@ -40,6 +41,7 @@ $muliFont: 'Muli', sans-serif;
 $latoFont: 'Lato', sans-serif;
 $ubuntuFont: 'Ubuntu', sans-serif;
 $poppinsFont: 'Poppins', sans-serif;
+$montserratFont: 'Montserrat', sans-serif;
 
 * {
   box-sizing: border-box;
