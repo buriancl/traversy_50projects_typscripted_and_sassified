@@ -9,6 +9,26 @@ const SEARCH_API: string =
 const main = document.getElementById('main') as HTMLElement
 const form = document.getElementById('form') as HTMLFormElement
 const search = document.getElementById('search') as HTMLInputElement
+const modalEl = document.getElementById('modal') as HTMLDialogElement
+const movieDataContainerEl = document.getElementById(
+  'movieDataContainer'
+) as HTMLDivElement
+const closeModalBtn =
+  document.querySelector<HTMLButtonElement>('.closeModalBtn')
+const modalTitleEl = document.querySelector<HTMLTitleElement>('.modalTitle')
+const taglineEl = document.querySelector<HTMLTitleElement>('.tagline')
+const genreListEl = document.querySelector<HTMLDivElement>('.genreList')
+const moviePosterEL = document.querySelector<HTMLImageElement>('.modalPoster')
+const overViewEl =
+  document.querySelector<HTMLParagraphElement>('.modalOverview')
+const runtimeEl = document.querySelector<HTMLParagraphElement>('.runtime')
+const mpaaRatingEl = document.querySelector<HTMLParagraphElement>('.mpaaRating')
+const creditsDropdownEl =
+  document.querySelector<HTMLDivElement>('.creditsDropdown')
+const directorEl = document.querySelector<HTMLParagraphElement>('.directorName')
+const castListEl = document.querySelector<HTMLDivElement>('.castList')
+const creditsToggleEl =
+  document.querySelector<HTMLButtonElement>('.creditsToggle')
 
 //Get initial movies
 getMovies(API_URL)
@@ -24,7 +44,7 @@ function showMovies(movies: any) {
   main.innerHTML = ''
 
   movies.forEach((movie: any) => {
-    const { title, poster_path, vote_average, overview } = movie
+    const { title, poster_path, vote_average, overview, id } = movie
 
     const movieEl = document.createElement('div')
     movieEl.classList.add('movie')
@@ -43,8 +63,144 @@ function showMovies(movies: any) {
     `
 
     main.appendChild(movieEl)
+
+    movieEl.addEventListener('click', () => {
+      getMovieData(id)
+      modalEl.showModal()
+    })
   })
 }
+
+//Get movie data
+async function getMovieData(movieId: string) {
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}?api_key=b0a402eca41caa9931010586ca76e936&language=en-US&append_to_response=release_dates,credits`
+  )
+  const data = await res.json()
+
+  createModal(data)
+}
+
+function createModal(movieData: any) {
+  console.log(movieData)
+
+  if (genreListEl) {
+    genreListEl.innerHTML = ''
+  }
+
+  if (castListEl) {
+    castListEl.innerHTML = ''
+  }
+
+  if (creditsDropdownEl) {
+    creditsDropdownEl.classList.remove('active')
+  }
+
+  movieData.genres.forEach((genre: { name: string }) => {
+    const genreEl = document.createElement('li')
+    genreEl.innerText = `${genre.name}`
+
+    genreListEl?.appendChild(genreEl)
+  })
+
+  if (modalTitleEl && taglineEl && moviePosterEL && overViewEl && runtimeEl) {
+    modalTitleEl.innerText = `${movieData.title}`
+    taglineEl.innerText = `${movieData.tagline}`
+    moviePosterEL.src = `${IMG_PATH + movieData.poster_path}`
+    moviePosterEL.alt = `${movieData.title}`
+    overViewEl.innerText = `${movieData.overview}`
+    runtimeEl.innerText = `${movieData.runtime}min`
+  }
+
+  const releaseDates = movieData.release_dates.results
+  const usReleases = releaseDates.filter(
+    (releaseObj: { iso_3166_1: string }) => {
+      return releaseObj.iso_3166_1 === 'US'
+    }
+  )
+  const usCert = usReleases[0]
+  if (mpaaRatingEl) {
+    if (usCert.release_dates[0].certification !== '') {
+      mpaaRatingEl.innerText = usCert.release_dates[0].certification
+    } else if (
+      usCert.release_dates.length > 1 &&
+      usCert.release_dates[1].certification !== ''
+    ) {
+      mpaaRatingEl.innerText = usCert.release_dates[1].certification
+    } else {
+      mpaaRatingEl.innerText = 'NR'
+    }
+  }
+
+  if (directorEl) {
+    directorEl.innerText = `${getDirector(movieData.credits.crew)}`
+  }
+
+  if (castListEl) {
+    const castList = getCast(movieData.credits.cast)
+
+    castList.forEach((castMember) => {
+      let verifiedProfileImgPath = ''
+      if (castMember.profileImg != null) {
+        verifiedProfileImgPath = IMG_PATH + castMember.profileImg
+      } else {
+        verifiedProfileImgPath =
+          'https://www.kindpng.com/picc/m/144-1447559_profile-icon-missing-profile-picture-icon-hd-png.png'
+      }
+      const actorEl = document.createElement('div')
+      actorEl.classList.add('actorInfo')
+      actorEl.innerHTML = `
+      <img class="profilePic" src='${verifiedProfileImgPath}' alt='${castMember.name}' />
+      <div class="namesContainer">
+      <p>${castMember.name}</p>
+      <p>${castMember.character}</p>
+      </div>
+      `
+      castListEl.append(actorEl)
+    })
+  }
+}
+
+function getDirector(crew: { job: string; name: string }[]) {
+  const director = crew.filter((crewMember) => {
+    return crewMember.job === 'Director'
+  })
+  return director[0].name
+}
+
+function getCast(
+  cast: { name: string; character: string; profile_path: string }[]
+) {
+  const castList = []
+  console.log(cast)
+
+  if (cast.length >= 10) {
+    for (let i = 0; i < 10; i++) {
+      castList.push({
+        name: cast[i].name,
+        character: cast[i].character,
+        profileImg: cast[i].profile_path,
+      })
+    }
+  } else {
+    for (let i = 0; i < cast.length; i++) {
+      castList.push({
+        name: cast[i].name,
+        character: cast[i].character,
+        profileImg: cast[i].profile_path,
+      })
+    }
+  }
+
+  console.log(castList)
+
+  return castList
+}
+
+creditsToggleEl?.addEventListener('click', () => {
+  let creditsSwitch = creditsToggleEl.parentNode as HTMLDivElement
+  creditsSwitch.classList.toggle('active')
+})
 
 function getClassByRate(vote: number) {
   if (vote >= 8) {
@@ -67,4 +223,8 @@ form.addEventListener('submit', (e) => {
   } else {
     window.location.reload()
   }
+})
+
+closeModalBtn?.addEventListener('click', () => {
+  modalEl.close()
 })

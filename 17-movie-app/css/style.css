@@ -4,9 +4,10 @@
 @import url("https://fonts.googleapis.com/css?family=Ubuntu");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -18,14 +19,17 @@ body {
 body {
   background-color: #22254b;
   font-family: "Poppins", sans-serif;
+  height: auto;
   overflow: visible;
 }
 
 header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
   background-color: #373b69;
   padding: 1rem;
-  display: flex;
-  justify-content: flex-end;
 }
 
 .search {
@@ -47,6 +51,9 @@ header {
 
 main {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -58,6 +65,7 @@ main {
   position: relative;
   overflow: hidden;
   border-radius: 3px;
+  cursor: pointer;
 }
 .movie img {
   width: 100%;
@@ -104,4 +112,173 @@ main {
   max-height: 100%;
   transform: translateY(101%);
   transition: transform 0.3s ease-in;
+}
+
+.modal {
+  width: 80vw;
+  height: 80vh;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 3px;
+}
+.modal .modalPosterContainer {
+  position: absolute;
+  left: 35px;
+  top: 50px;
+}
+.modal .modalPosterContainer .modalPoster {
+  width: 350px;
+  height: auto;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+.modal .modalPosterContainer .posterData {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.modal .modalPosterContainer .posterData .mpaaRating,
+.modal .modalPosterContainer .posterData .runtime {
+  color: #373b69;
+}
+.modal .movieTitleContainer {
+  position: absolute;
+  left: 420px;
+  top: 50px;
+  width: 500px;
+  height: auto;
+}
+.modal .movieTitleContainer .modalTitle {
+  color: #22254b;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  font-size: 32px;
+}
+.modal .movieTitleContainer .tagline {
+  color: #22254b;
+}
+.modal .movieTitleContainer .genreList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  padding: 0;
+}
+.modal .movieTitleContainer .genreList li {
+  font-size: 16px;
+  list-style-type: none;
+  margin-right: 8px;
+  color: #373b69;
+}
+.modal .modalOverview {
+  position: absolute;
+  left: 420px;
+  top: 200px;
+  width: 1000px;
+  height: auto;
+  color: #22254b;
+  font-size: 18px;
+}
+
+.closeModalBtn {
+  position: absolute;
+  right: 35px;
+  bottom: 35px;
+  padding: 5px 8px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  border: 2px solid #22254b;
+  background-color: #373b69;
+  color: #fff;
+  font-family: inherit;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.closeModalBtn:active {
+  transform: translateY(3px);
+}
+
+.creditsDropdown {
+  position: absolute;
+  left: 420px;
+  top: 300px;
+  width: 1000px;
+  height: auto;
+  border-top: 1px solid #22254b;
+  border-bottom: 1px solid #22254b;
+}
+.creditsDropdown .creditsToggle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #22254b;
+}
+.creditsDropdown .creditsToggle .fa-times {
+  display: none;
+}
+.creditsDropdown h3 {
+  margin-bottom: 12px;
+}
+.creditsDropdown h3,
+.creditsDropdown h4 {
+  margin-top: 12px;
+  color: #22254b;
+}
+.creditsDropdown .creditsContainer {
+  margin-left: 12px;
+  display: none;
+}
+.creditsDropdown .castList {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 20px;
+}
+.creditsDropdown .castList .actorInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+}
+.creditsDropdown .castList .actorInfo .profilePic {
+  width: 50px;
+  height: 50px;
+  margin-right: 16px;
+  object-position: center center;
+  object-fit: cover;
+  border: 1px solid #22254b;
+  border-radius: 50%;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+}
+.creditsDropdown .castList .actorInfo .profilePic:hover {
+  transform: scale(2.5);
+  transition: transform 0.4s ease-in-out;
+}
+.creditsDropdown .castList .actorInfo .namesContainer p {
+  color: #373b69;
+  font-size: 14px;
+}
+.creditsDropdown .castList .actorInfo .namesContainer p:first-child {
+  font-size: 16px;
+  color: #22254b;
+}
+.creditsDropdown.active .creditsContainer {
+  display: block;
 }
