@@ -2,7 +2,7 @@
 
 body {
   background-color: #efedd6;
-  font-family: $robotoFont;
+  font-family: 'Roboto', sans-serif;
   @include flexCenter(column);
   overflow: visible;
   overflow-x: hidden;

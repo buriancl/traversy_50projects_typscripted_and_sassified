@@ -121,10 +121,20 @@ main {
         color: $secondary-color;
       }
     }
+
+    .date {
+      @include flexSetting(row, center, center);
+      margin-top: 10px;
+      color: $secondary-color;
+    }
+  }
+
+  .modalRight {
+    @include absolutePosition(left, 420px, top, 50px);
+    @include flexSetting(column, left, center);
   }
 
   .movieTitleContainer {
-    @include absolutePosition(left, 420px, top, 50px);
     @include widthHeight(500px, auto);
 
     .modalTitle {
@@ -150,39 +160,26 @@ main {
       }
     }
   }
-
-  .modalOverview {
-    @include absolutePosition(left, 420px, top, 200px);
-    @include widthHeight(1000px, auto);
-    color: $primary-color;
-    font-size: 18px;
-  }
 }
 
-.closeModalBtn {
-  @include absolutePosition(right, 35px, bottom, 35px);
-  padding: 5px 8px;
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-  border: 2px solid $primary-color;
-  background-color: $secondary-color;
-  color: #fff;
-  font-family: inherit;
-  border-radius: 3px;
-  cursor: pointer;
-  &:active {
-    transform: translateY(3px);
-  }
+.modalOverview {
+  @include widthHeight(1000px, auto);
+  color: $primary-color;
+  font-size: 18px;
+  margin-top: 24px;
 }
 
 .creditsDropdown {
-  @include absolutePosition(left, 420px, top, 300px);
   @include widthHeight(1000px, auto);
   border-top: 1px solid $primary-color;
   border-bottom: 1px solid $primary-color;
+  position: relative;
+  margin-top: 24px;
+  padding: 10px 0;
 
   .creditsToggle {
     @include flexSetting(row, center, center);
-    @include absolutePosition(right, 30px, top, 15px);
+    @include absolutePosition(right, 30px, top, 12px);
     @include widthHeight(30px, 30px);
     font-size: 16px;
     padding: 0;
@@ -197,13 +194,7 @@ main {
     }
   }
 
-  h3 {
-    margin-bottom: 12px;
-  }
-
-  h3,
-  h4 {
-    margin-top: 12px;
+  .creditsTitle {
     color: $primary-color;
   }
 
@@ -212,8 +203,24 @@ main {
     display: none;
   }
 
+  .directorContainer {
+    margin-top: 12px;
+
+    h3 {
+      color: $primary-color;
+    }
+  }
+
+  .castContainer {
+    margin-top: 12px;
+
+    h3 {
+      color: $primary-color;
+    }
+  }
+
   .castList {
-    margin-top: 8px;
+    margin-top: 12px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px 20px;
@@ -252,6 +259,21 @@ main {
 
   &.active .creditsContainer {
     display: block;
+  }
+}
+
+.closeModalBtn {
+  @include absolutePosition(right, 35px, bottom, 35px);
+  padding: 5px 8px;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  border: 2px solid $primary-color;
+  background-color: $secondary-color;
+  color: #fff;
+  font-family: inherit;
+  border-radius: 3px;
+  cursor: pointer;
+  &:active {
+    transform: translateY(3px);
   }
 }
 

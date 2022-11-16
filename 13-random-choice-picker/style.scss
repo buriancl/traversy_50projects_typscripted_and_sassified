@@ -3,7 +3,7 @@
 body {
   @include flexSetting(column, center, center);
   background-color: #2b88f0;
-  font-family: $muliFont;
+  font-family: 'Muli', sans-serif;
 }
 
 h3 {

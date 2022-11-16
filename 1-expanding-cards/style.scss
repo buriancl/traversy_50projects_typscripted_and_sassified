@@ -1,7 +1,7 @@
 @import '../_project_starter_/style.scss';
 
 body {
-  font-family: $muliFont;
+  font-family: 'Muli', sans-serif;
   @include flexCenter(row);
 }
 

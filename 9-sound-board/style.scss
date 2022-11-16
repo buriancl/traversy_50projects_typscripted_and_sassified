@@ -3,7 +3,7 @@
 body {
   background-color: rgb(161, 100, 223);
   @include flexSetting(row, center, center);
-  font-family: $poppinsFont;
+  font-family: 'Poppins', sans-serif;
   flex-wrap: wrap;
 }
 

@@ -1,7 +1,7 @@
 @import '../_project_starter_/style.scss';
 
 body {
-  font-family: $robotoFont;
+  font-family: 'Roboto', sans-serif;
   @include flexSetting(column, center, center);
   background-color: #686de0;
   padding: 20px;

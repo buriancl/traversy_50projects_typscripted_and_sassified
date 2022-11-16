@@ -4,7 +4,7 @@ body {
   @include flexSetting(column, center, center);
   background-color: steelblue;
   color: #fff;
-  font-family: $muliFont;
+  font-family: 'Muli', sans-serif;
 }
 
 .container {
