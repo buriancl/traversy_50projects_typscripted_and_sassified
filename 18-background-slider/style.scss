@@ -1,38 +1,30 @@
 @import '../_project_starter_/style.scss';
 
 body {
-  background-position: center center;
-  background-size: cover;
+  @include flexSetting(column, center, center);
+  @include imageSetting;
   transition: 0.4s ease;
   &::before {
     content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
+    @include absolutePosition(left, 0, top, 0);
+    @include widthHeight(100%, 100vh);
     background-color: rgba(0, 0, 0, 0.7);
     z-index: -1;
   }
 }
 
 .slider-container {
+  @include widthHeight(70vw, 70vh);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  height: 70vh;
-  width: 70vw;
   position: relative;
   overflow: hidden;
 }
 
 .slide {
+  @include widthHeight(100vw, 100vh);
+  @include imageSetting;
+  @include absolutePosition(left, -15vw, top, -15vh);
   opacity: 0;
-  height: 100vh;
-  width: 100vw;
-  background-position: center center;
-  background-size: cover;
-  position: absolute;
-  top: -15vh;
-  left: -15vw;
   transition: 0.4s ease;
   z-index: 1;
   &.active {
