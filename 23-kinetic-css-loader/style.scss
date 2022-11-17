@@ -1,21 +1,18 @@
 @import '../_project_starter_/style.scss';
 
 body {
+  @include flexSetting(column, center, center);
   background-color: #2c3e50;
 }
 
 .kinetic {
+  @include widthHeight(80px, 80px);
   position: relative;
-  height: 80px;
-  width: 80px;
   &::after,
   &::before {
     content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 0;
+    @include absolutePosition(left, 0, top, 0);
+    @include widthHeight(0, 0);
     border: 20px solid transparent;
     border-bottom-color: #fff;
     animation: rotateA 2s linear infinite 0.5s;

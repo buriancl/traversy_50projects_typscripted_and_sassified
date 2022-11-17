@@ -1,6 +1,8 @@
 @import '../_project_starter_/style.scss';
 
 body {
+  @include flexSetting(row, center, center);
+  font-family: 'Roboto', sans-serif;
   background-color: #ecf0f1;
 }
 
@@ -19,9 +21,8 @@ img {
   height: 200px;
 
   img {
+    @include widthHeight(100%, 100%);
     object-fit: cover;
-    height: 100%;
-    width: 100%;
   }
 }
 
@@ -45,16 +46,13 @@ img {
 }
 
 .profile-img {
+  @include widthHeight(40px, 40px);
   border-radius: 50%;
   overflow: hidden;
-  height: 40px;
-  width: 40px;
 }
 
 .author-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  @include flexSetting(column, center, space-around);
   margin-left: 10px;
   width: 100px;
 
@@ -77,11 +75,10 @@ img {
 }
 
 .animated-bg-text {
+  @include widthHeight(100%, 10px);
   border-radius: 50px;
   display: inline-block;
   margin: 0;
-  height: 10px;
-  width: 100%;
 }
 
 @keyframes bgPos {
