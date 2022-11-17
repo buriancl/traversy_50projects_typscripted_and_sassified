@@ -1,7 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Muli:300,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Heebo:300&display=swap");
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
 }
 
 body {
@@ -9,13 +22,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: "Robato", sans-serif;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
-}
-
-body {
+  font-family: "Roboto", sans-serif;
   background-color: #000;
 }
 
@@ -35,10 +42,10 @@ button:focus {
   outline: none;
 }
 button .circle {
-  position: absolute;
-  background-color: #fff;
   width: 100px;
   height: 100px;
+  position: absolute;
+  background-color: #fff;
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
   animation: scale 0.5s ease-out;

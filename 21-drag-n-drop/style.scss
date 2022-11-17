@@ -1,22 +1,21 @@
 @import '../_project_starter_/style.scss';
 
 body {
+  @include flexSetting(row, center, center);
   background-color: steelblue;
   flex-direction: row;
 }
 
 .empty {
-  height: 150px;
-  width: 150px;
+  @include widthHeight(150px, 150px);
   margin: 10px;
   border: solid 3px black;
   background: #fff;
 }
 
 .fill {
+  @include widthHeight(145px, 145px);
   background-image: url('https://source.unsplash.com/random/150x150');
-  height: 145px;
-  width: 145px;
   cursor: pointer;
 }
 
