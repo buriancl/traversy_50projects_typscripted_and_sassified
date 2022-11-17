@@ -1,15 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans');
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@import '../_project_starter_/style.scss';
 
 body {
   font-family: 'Open Sans', sans-serif;
   color: #222;
   padding-bottom: 50px;
+  height: auto;
+  overflow: auto;
 }
 
 .container {
@@ -26,18 +22,14 @@ body {
   transition: all 0.3s ease-in-out;
 
   .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flexSetting(row, center, space-between);
     padding: 20px 0;
     transition: all 0.3s ease-in-out;
   }
 
   ul {
-    display: flex;
+    @include flexSetting(row, center, center);
     list-style-type: none;
-    align-items: center;
-    justify-content: center;
   }
 
   a {
@@ -45,6 +37,11 @@ body {
     text-decoration: none;
     padding: 7px 15px;
     transition: all 0.3s ease-in-out;
+
+    &.current,
+    &:hover {
+      color: #c0392b;
+    }
   }
 
   &.active {
@@ -57,34 +54,25 @@ body {
 
     a {
       color: #000;
-
-      &.current,
-      &:hover {
-        color: #c0392b;
-      }
     }
   }
 }
 
 .hero {
   background-image: url('https://images.pexels.com/photos/450035/pexels-photo-450035.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-  background-repeat: no-repeat;
-  background-size: cover;
+  @include imageSetting;
+  @include flexSetting(column, center, center);
   background-position: bottom center;
   height: 100vh;
   color: #fff;
-  @include flexColumnCenter();
   text-align: center;
   position: relative;
   margin-bottom: 20px;
   z-index: -2;
   &::before {
     content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    @include absolutePosition(left, 0, top, 0);
+    @include widthHeight(100%, 100%);
     background-color: rgba(0, 0, 0, 0.5);
     z-index: -1;
   }

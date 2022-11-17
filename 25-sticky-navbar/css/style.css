@@ -1,3 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Muli:300,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Heebo:300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans");
 * {
   box-sizing: border-box;
@@ -6,9 +13,16 @@
 }
 
 body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
   font-family: "Open Sans", sans-serif;
   color: #222;
   padding-bottom: 50px;
+  height: auto;
+  overflow: auto;
 }
 
 .container {
@@ -26,22 +40,27 @@ body {
 }
 .nav .container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   padding: 20px 0;
   transition: all 0.3s ease-in-out;
 }
 .nav ul {
   display: flex;
-  list-style-type: none;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
+  list-style-type: none;
 }
 .nav a {
   color: #fff;
   text-decoration: none;
   padding: 7px 15px;
   transition: all 0.3s ease-in-out;
+}
+.nav a.current, .nav a:hover {
+  color: #c0392b;
 }
 .nav.active {
   background-color: #fff;
@@ -53,20 +72,19 @@ body {
 .nav.active a {
   color: #000;
 }
-.nav.active a.current, .nav.active a:hover {
-  color: #c0392b;
-}
 
 .hero {
   background-image: url("https://images.pexels.com/photos/450035/pexels-photo-450035.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-  background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-position: bottom center;
   height: 100vh;
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
   position: relative;
   margin-bottom: 20px;
@@ -75,8 +93,8 @@ body {
 .hero::before {
   content: "";
   position: absolute;
-  top: 0;
   left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
