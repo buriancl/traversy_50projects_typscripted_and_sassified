@@ -1,3 +1,4 @@
+const htmlEl = document.querySelector<HTMLElement>('html')
 const hourEl = document.querySelector<HTMLDivElement>('.hour')
 const minuteEl = document.querySelector<HTMLDivElement>('.minute')
 const secondEl = document.querySelector<HTMLDivElement>('.second')
@@ -29,28 +30,20 @@ const months: string[] = [
   'Nov',
   'Dec',
 ]
-if (toggle != null) {
-  toggle.addEventListener('click', (e) => {
-    let html
-    if (document.querySelector<HTMLElement>('html') != null) {
-      html = document.querySelector<HTMLElement>('html')
-    }
 
-    if (html != undefined) {
-      if (
-        html.classList.contains('dark') &&
-        e.target != undefined &&
-        e.target instanceof Element
-      ) {
-        html.classList.remove('dark')
-        e.target.innerHTML = 'Dark mode'
-      } else if (e.target != undefined && e.target instanceof Element) {
-        html.classList.add('dark')
-        e.target.innerHTML = 'Light mode'
-      }
-    }
-  })
-}
+toggle?.addEventListener('click', (e) => {
+  if (
+    htmlEl?.classList.contains('dark') &&
+    e.target != undefined &&
+    e.target instanceof Element
+  ) {
+    htmlEl.classList.remove('dark')
+    e.target.innerHTML = 'Dark mode'
+  } else if (e.target != undefined && e.target instanceof Element) {
+    htmlEl?.classList.add('dark')
+    e.target.innerHTML = 'Light mode'
+  }
+})
 
 function setTime() {
   const time = new Date()

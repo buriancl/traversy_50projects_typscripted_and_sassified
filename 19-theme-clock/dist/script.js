@@ -1,4 +1,5 @@
 "use strict";
+const htmlEl = document.querySelector('html');
 const hourEl = document.querySelector('.hour');
 const minuteEl = document.querySelector('.minute');
 const secondEl = document.querySelector('.second');
@@ -28,26 +29,18 @@ const months = [
     'Nov',
     'Dec',
 ];
-if (toggle != null) {
-    toggle.addEventListener('click', (e) => {
-        let html;
-        if (document.querySelector('html') != null) {
-            html = document.querySelector('html');
-        }
-        if (html != undefined) {
-            if (html.classList.contains('dark') &&
-                e.target != undefined &&
-                e.target instanceof Element) {
-                html.classList.remove('dark');
-                e.target.innerHTML = 'Dark mode';
-            }
-            else if (e.target != undefined && e.target instanceof Element) {
-                html.classList.add('dark');
-                e.target.innerHTML = 'Light mode';
-            }
-        }
-    });
-}
+toggle === null || toggle === void 0 ? void 0 : toggle.addEventListener('click', (e) => {
+    if ((htmlEl === null || htmlEl === void 0 ? void 0 : htmlEl.classList.contains('dark')) &&
+        e.target != undefined &&
+        e.target instanceof Element) {
+        htmlEl.classList.remove('dark');
+        e.target.innerHTML = 'Dark mode';
+    }
+    else if (e.target != undefined && e.target instanceof Element) {
+        htmlEl === null || htmlEl === void 0 ? void 0 : htmlEl.classList.add('dark');
+        e.target.innerHTML = 'Light mode';
+    }
+});
 function setTime() {
     const time = new Date();
     const month = time.getMonth();
