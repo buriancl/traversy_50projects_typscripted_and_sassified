@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
 
 body {
+  @include flexSetting(column, center, center);
   background-color: rebeccapurple;
   font-family: 'Poppins', sans-serif;
 }
@@ -24,12 +25,10 @@ body {
 }
 
 #toasts {
+  @include flexSetting(column, flex-end, center);
   position: fixed;
   bottom: 10px;
   right: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
 }
 
 .toast {
