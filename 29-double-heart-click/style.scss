@@ -1,5 +1,4 @@
 @import '../_project_starter_/style.scss';
-@import url('https://fonts.googleapis.com/css2?family=Oswald');
 
 body {
   font-family: 'Oswald', sans-serif;
@@ -23,8 +22,7 @@ small {
 }
 
 .loveMe {
-  height: 440px;
-  width: 300px;
+  @include widthHeight(300px, 440px);
   background: url('https://images.unsplash.com/photo-1590381801398-a032736f951f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bGVzJTIwcGF1bHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60')
     no-repeat center center/cover;
   margin: auto;
