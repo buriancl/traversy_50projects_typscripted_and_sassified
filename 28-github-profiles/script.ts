@@ -60,16 +60,35 @@ function addReposToCard(repos: object[]) {
   })
 }
 
-function createUserCard(user: any) {
-  const { name, avatar_url, bio, followers, following, public_repos } = user
+function createUserCard(user: {
+  name: string
+  avatar_url: string
+  bio: string
+  followers: number
+  following: number
+  public_repos: number
+  html_url: string
+}) {
+  console.log(user)
+  const {
+    name,
+    avatar_url,
+    bio,
+    followers,
+    following,
+    public_repos,
+    html_url,
+  } = user
   const cardHTML = `
     <div class="card">
         <div>
+        <a href="${html_url}" target="_blank">
           <img
             src="${avatar_url}"
             alt="${name}"
             class="avatar"
           />
+        </a>
         </div>
         <div class="user-info">
           <h2>${name}</h2>
